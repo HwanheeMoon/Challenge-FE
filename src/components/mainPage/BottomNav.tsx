@@ -4,10 +4,8 @@ import { AiFillEdit, AiOutlineEdit } from "react-icons/ai";
 import { FaRegUserCircle, FaUserCircle } from "react-icons/fa";
 import { IoCamera, IoCameraOutline } from "react-icons/io5";
 import { LuLayoutGrid } from "react-icons/lu";
-import { TbBrandSafari } from "react-icons/tb";
 import { PageState } from "../store/NavStore.ts";
 import { useNavigate } from "react-router-dom";
-import { PiLayoutFill } from "react-icons/pi";
 import { GoHome, GoHomeFill } from "react-icons/go";
 
 const BottomNav = () => {

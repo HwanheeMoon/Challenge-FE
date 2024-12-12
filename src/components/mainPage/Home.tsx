@@ -16,7 +16,7 @@ interface banner {
 }
 export const Home = (props: data) => {
    return (
-      <div>
+      <div className="mb-24">
          <Banner list={props.list} />
          <Category />
       </div>

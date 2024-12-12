@@ -15,9 +15,43 @@ interface item {
    category: string;
 }
 
+interface condition {
+   categoryNm: string;
+   displayNm: string;
+}
+
+const filterCondition: condition[] = [
+   {
+      categoryNm: "all",
+      displayNm: "전체",
+   },
+   {
+      categoryNm: "lifeStyle",
+      displayNm: "생활습관",
+   },
+   {
+      categoryNm: "exercise",
+      displayNm: "운동",
+   },
+   {
+      categoryNm: "care",
+      displayNm: "돌봄",
+   },
+   {
+      categoryNm: "study",
+      displayNm: "공부",
+   },
+   // {
+   //    categoryNm: "help",
+   //    displayNm: "봉사",
+   // },
+];
+
 export const BestChallenge = (props: props) => {
    const [category, setCategory] = useState("all");
    const [filteredList, setFilteredList] = useState(props.list);
+
+   const selectedTextColor = "bg-blue-400";
 
    const filterList = (state: string) => {
       setCategory(state);
@@ -37,53 +71,20 @@ export const BestChallenge = (props: props) => {
                msOverflowStyle: "none",
             }}
          >
-            <button
-               type="button"
-               className={`btn shadow-md rounded-3xl font-medium mr-3 ${
-                  category === "all" ? "bg-red-400 text-white" : "bg-white"
-               } `}
-               onClick={() => filterList("all")}
-            >
-               전체
-            </button>
-            <button
-               type="button"
-               className={`btn shadow-md rounded-3xl font-medium mr-3 ${
-                  category === "lifeStyle"
-                     ? "bg-red-400 text-white"
-                     : "bg-white"
-               } `}
-               onClick={() => filterList("lifeStyle")}
-            >
-               생활습관
-            </button>
-            <button
-               type="button"
-               className={`btn shadow-md rounded-3xl font-medium mr-3 ${
-                  category === "exercise" ? "bg-red-400 text-white" : "bg-white"
-               } `}
-               onClick={() => filterList("exercise")}
-            >
-               운동
-            </button>
-            <button
-               type="button"
-               className={`btn shadow-md rounded-3xl font-medium mr-3 ${
-                  category === "care" ? "bg-red-400 text-white" : "bg-white"
-               } `}
-               onClick={() => filterList("care")}
-            >
-               돌봄
-            </button>
-            <button
-               type="button"
-               className={`btn shadow-md rounded-3xl font-medium mr-3 ${
-                  category === "study" ? "bg-red-400 text-white" : "bg-white"
-               } `}
-               onClick={() => filterList("study")}
-            >
-               공부
-            </button>
+            {" "}
+            {filterCondition.map((condition) => (
+               <button
+                  type="button"
+                  className={`btn shadow-md rounded-3xl font-medium mr-3 ${
+                     category === condition.categoryNm
+                        ? `${selectedTextColor} text-white`
+                        : `bg-white`
+                  } `}
+                  onClick={() => filterList(condition.categoryNm)}
+               >
+                  {condition.displayNm}
+               </button>
+            ))}
          </div>
 
          <div>

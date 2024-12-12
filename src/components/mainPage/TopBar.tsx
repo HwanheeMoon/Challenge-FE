@@ -7,6 +7,10 @@ import { topSt } from "../store/TopBarStore.ts";
 const TopBar = () => {
    const [st, setSt] = useAtom(topSt);
 
+   const borderColor = "#60a5fa";
+   const selectedTextColor = "text-blue-400";
+   const nonSelectedTextColor = "text-gray-500";
+
    return (
       <div>
          <div className="flex mt-7 justify-between gap-4 h-10">
@@ -46,13 +50,13 @@ const TopBar = () => {
                role="tab"
                className={`tab  ${
                   st === "home"
-                     ? "text-red-400 tab-border-3 font-bold"
-                     : "text-black border-gray-300"
+                     ? `${selectedTextColor} tab-border-3 font-bold`
+                     : `${nonSelectedTextColor} border-gray-300`
                }`}
                style={
                   st === "home"
                      ? {
-                          borderColor: "#ff6f70",
+                          borderColor: `${borderColor}`,
                        }
                      : {}
                }
@@ -70,13 +74,13 @@ const TopBar = () => {
                role="tab"
                className={`tab  ${
                   st === "best"
-                     ? "text-red-400 tab-border-3 font-bold "
-                     : "text-black border-gray-300"
+                     ? `${selectedTextColor} tab-border-3 font-bold`
+                     : `${nonSelectedTextColor} border-gray-300`
                }`}
                style={
                   st === "best"
                      ? {
-                          borderColor: "#ff6f70",
+                          borderColor: `${borderColor}`,
                        }
                      : {}
                }
@@ -93,13 +97,13 @@ const TopBar = () => {
                role="tab"
                className={`tab  ${
                   st === "new"
-                     ? "text-red-400 tab-border-3 font-bold "
-                     : "text-black border-gray-300"
+                     ? `${selectedTextColor} tab-border-3 font-bold`
+                     : `${nonSelectedTextColor} border-gray-300`
                }`}
                style={
                   st === "new"
                      ? {
-                          borderColor: "#ff6f70",
+                          borderColor: `${borderColor}`,
                        }
                      : {}
                }
@@ -116,13 +120,13 @@ const TopBar = () => {
                role="tab"
                className={`tab  ${
                   st === "recom"
-                     ? "text-red-400 tab-border-3 font-bold "
-                     : "text-black border-gray-300"
+                     ? `${selectedTextColor} tab-border-3 font-bold`
+                     : `${nonSelectedTextColor} border-gray-300`
                }`}
                style={
                   st === "recom"
                      ? {
-                          borderColor: "#ff6f70",
+                          borderColor: `${borderColor}`,
                        }
                      : {}
                }
