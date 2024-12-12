@@ -13,10 +13,12 @@ import { GoHome, GoHomeFill } from "react-icons/go";
 const BottomNav = () => {
    const [pageSt, setPageSt] = useAtom(PageState);
 
+   const iconSize = "size-6";
+
    const navigate = useNavigate();
 
    return (
-      <div className="btm-nav w-screen border-2 text-sm font-semibold mx-auto  h-20">
+      <div className="btm-nav w-screen border-2 text-sm font-semibold mx-auto  h-15">
          <button
             onClick={() => {
                setPageSt("home");
@@ -25,12 +27,12 @@ const BottomNav = () => {
          >
             {pageSt === "home" ? (
                <div className=" text-black">
-                  <GoHomeFill className="size-8" />
+                  <GoHomeFill className={iconSize} />
                   <p>홈</p>
                </div>
             ) : (
                <div className="text-gray-400">
-                  <GoHome className="size-8" />
+                  <GoHome className={iconSize} />
                   <p>홈</p>
                </div>
             )}
@@ -43,12 +45,12 @@ const BottomNav = () => {
          >
             {pageSt === "edit" ? (
                <div className=" text-black">
-                  <AiFillEdit className="size-8" />
+                  <AiFillEdit className={iconSize} />
                   <p>개설</p>
                </div>
             ) : (
                <div className="text-gray-400">
-                  <AiOutlineEdit className="size-8" />
+                  <AiOutlineEdit className={iconSize} />
                   <p>개설</p>
                </div>
             )}
@@ -61,12 +63,12 @@ const BottomNav = () => {
          >
             {pageSt === "auth" ? (
                <div className=" text-black">
-                  <IoCamera className="size-8" />
+                  <IoCamera className={iconSize} />
                   <p>인증</p>
                </div>
             ) : (
                <div className="text-gray-400">
-                  <IoCameraOutline className="size-8" />
+                  <IoCameraOutline className={iconSize} />
                   <p>인증</p>
                </div>
             )}
@@ -79,12 +81,12 @@ const BottomNav = () => {
          >
             {pageSt === "feed" ? (
                <div className=" text-black">
-                  <LuLayoutGrid className="size-8 fill-black" />
+                  <LuLayoutGrid className={` ${iconSize} fill-black`} />
                   <p>피드</p>
                </div>
             ) : (
                <div className="text-gray-400">
-                  <LuLayoutGrid className="size-8" />
+                  <LuLayoutGrid className={iconSize} />
                   <p>피드</p>
                </div>
             )}
@@ -99,12 +101,14 @@ const BottomNav = () => {
          >
             {pageSt === "myPage" ? (
                <div className=" text-black">
-                  <FaUserCircle className="justify-self-center size-8" />
+                  <FaUserCircle className={`justify-self-center ${iconSize}`} />
                   <p>내 정보</p>
                </div>
             ) : (
                <div className="text-gray-400">
-                  <FaRegUserCircle className="justify-self-center size-8" />
+                  <FaRegUserCircle
+                     className={`justify-self-center ${iconSize}`}
+                  />
                   <p>내 정보</p>
                </div>
             )}

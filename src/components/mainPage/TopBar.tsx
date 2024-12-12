@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import { useAtom } from "jotai";
+import React from "react";
 import { CiBookmark } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
+import { topSt } from "../store/TopBarStore.ts";
 
 const TopBar = () => {
-   const [tabIndex, setTabIndex] = useState("home");
+   const [st, setSt] = useAtom(topSt);
 
    return (
       <div>
-         <div className="flex mt-7 justify-between gap-4 ">
+         <div className="flex mt-7 justify-between gap-4 h-10">
             <label className="input bg-base-200 rounded-sm flex items-center gap-2 w-full h-10">
                <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -43,21 +45,20 @@ const TopBar = () => {
                name="my_tabs_1"
                role="tab"
                className={`tab  ${
-                  tabIndex === "home"
+                  st === "home"
                      ? "text-red-400 tab-border-3 font-bold"
                      : "text-black border-gray-300"
                }`}
                style={
-                  tabIndex === "home"
+                  st === "home"
                      ? {
                           borderColor: "#ff6f70",
                        }
                      : {}
                }
                aria-label="홈"
-               defaultChecked
                onClick={() => {
-                  setTabIndex("home");
+                  setSt("home");
                }}
             />
 
@@ -68,12 +69,12 @@ const TopBar = () => {
                name="my_tabs_1"
                role="tab"
                className={`tab  ${
-                  tabIndex === "best"
+                  st === "best"
                      ? "text-red-400 tab-border-3 font-bold "
                      : "text-black border-gray-300"
                }`}
                style={
-                  tabIndex === "best"
+                  st === "best"
                      ? {
                           borderColor: "#ff6f70",
                        }
@@ -81,7 +82,7 @@ const TopBar = () => {
                }
                aria-label="인기"
                onClick={() => {
-                  setTabIndex("best");
+                  setSt("best");
                }}
             />
             {/* <div role="tabpanel" className="tab-content p-10">Tab content 2</div> */}
@@ -91,21 +92,20 @@ const TopBar = () => {
                name="my_tabs_1"
                role="tab"
                className={`tab  ${
-                  tabIndex === "new"
+                  st === "new"
                      ? "text-red-400 tab-border-3 font-bold "
                      : "text-black border-gray-300"
                }`}
                style={
-                  tabIndex === "new"
+                  st === "new"
                      ? {
                           borderColor: "#ff6f70",
                        }
                      : {}
                }
                aria-label="신규"
-               defaultChecked
                onClick={() => {
-                  setTabIndex("new");
+                  setSt("new");
                }}
             />
             {/* <div role="tabpanel" className="tab-content p-10">Tab content 3</div> */}
@@ -115,21 +115,20 @@ const TopBar = () => {
                name="my_tabs_1"
                role="tab"
                className={`tab  ${
-                  tabIndex === "recom"
+                  st === "recom"
                      ? "text-red-400 tab-border-3 font-bold "
                      : "text-black border-gray-300"
                }`}
                style={
-                  tabIndex === "recom"
+                  st === "recom"
                      ? {
                           borderColor: "#ff6f70",
                        }
                      : {}
                }
                aria-label="추천"
-               defaultChecked
                onClick={() => {
-                  setTabIndex("recom");
+                  setSt("recom");
                }}
             />
             {/* <div role="tabpanel" className="tab-content p-10">Tab content 3</div> */}
